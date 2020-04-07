@@ -41,11 +41,35 @@ class Monster
     attr_reader :name, :offense, :defense
     attr_accessor :hp
     
+    DORAGON_ATTACK_CONSTANT = 1.5    
+    
     def initialize(**params)
         @name = params[:name]
         @hp = params[:hp]
         @offense = params[:offense]
         @defense = params[:defense]
+    end
+    
+    def attack(brave)
+        puts "#{@name}の攻撃"
+        
+        if monster.hp > (@hp / 2)
+            puts "通常攻撃"
+            damage = @offense - brave.defense
+        else
+            puts "スライムはドラゴンに変身した"
+            puts "ドラゴンの攻撃"
+            damege = doragon_attack - brave.defense
+        end
+        
+        brave.hp -= damage
+        
+        puts "#{brave.name}は#{damage}のダメージを受けた"
+        puts "#{brave.name}の残りHPは#{brave.hp}だ"
+    end
+    
+    def doragon_attack
+        @offense * DORAGON_ATTACK_CONSTANT
     end
 end
 
@@ -53,7 +77,4 @@ brave = Brave.new(name: "テリー", hp: 500, offense: 150, defense: 100)
 monster = Monster.new(name: "スライム", hp: 200, offense: 200, defense: 100)
 
 brave.attack(monster)
-
-defkljkjlsasfsafas;
-
-barabvoi/s;k
+monster.attack(brave)
