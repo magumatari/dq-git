@@ -55,3 +55,5 @@ monster = Monster.new(name: "スライム", hp: 200, offense: 200, defense: 100)
 brave.attack(monster)
 
 defkljkjlsasfsafas;
+
+barabvoi/s;k
